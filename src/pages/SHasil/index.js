@@ -1,188 +1,116 @@
-import React, { useState } from 'react';
-import { StyleSheet, Dimensions, View, TouchableOpacity, Text, Image, Alert } from 'react-native';
+import { Alert, StyleSheet, Text, View, Image, ActivityIndicator, Linking } from 'react-native'
+import React, { useState, useEffect } from 'react'
+import { SafeAreaView } from 'react-native-safe-area-context'
+import { apiURL, getData, MYAPP, storeData } from '../../utils/localStorage';
 import { colors, fonts, windowHeight, windowWidth } from '../../utils';
-import Pdf from 'react-native-pdf';
-import axios from 'axios';
-import { apiURL } from '../../utils/localStorage';
+import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import { showMessage } from 'react-native-flash-message';
+import Sound from 'react-native-sound';
+import { Icon } from 'react-native-elements/dist/icons/Icon';
+import { MyButton, MyGap, MyHeader, MyInput, MyPicker } from '../../components';
+import { useIsFocused } from '@react-navigation/native';
+import axios from 'axios';
+import DatePicker from 'react-native-datepicker'
+import { maskJs, maskCurrency } from 'mask-js';
+import moment from 'moment';
+
+export default function AAInput({ navigation, route }) {
+
+    const [loading, setLoading] = useState(false);
+    const [item, setItem] = useState(route.params);
+    const [comp, setComp] = useState({});
+    console.log('Hasil', route.params)
 
 
 
-export default function SHasil({ navigation, route }) {
-    const item = route.params;
-    console.log(item);
 
 
-    const MyListData = ({ label, value }) => {
+    // setLoading(false);
+
+    const konsultasi = () => {
+        Linking.openURL('https://wa.me/' + comp.tlp);
+    }
+
+    const MyDataList = ({ l, v }) => {
         return (
             <View style={{
-                flexDirection: 'row'
+                padding: 5,
+                marginVertical: 5,
             }}>
                 <Text style={{
                     fontFamily: fonts.secondary[600],
-                    fontSize: 12,
-                    flex: 1,
-                }}>{label}</Text>
+                    fontSize: windowWidth / 28
+                }}>{l}</Text>
                 <Text style={{
-                    fontFamily: fonts.secondary[600],
-                    fontSize: 12,
-                    flex: 0.1,
-                }}>:</Text>
-                <Text style={{
+                    marginVertical: 2,
+                    borderRadius: 5,
+                    backgroundColor: colors.white,
+                    padding: 10,
                     fontFamily: fonts.secondary[400],
-                    fontSize: 12,
-                    flex: 1,
-                }}>{value}</Text>
+                    fontSize: windowWidth / 28,
+                    color: colors.danger
+                }}>{v}</Text>
             </View>
         )
     }
 
+    useEffect(() => {
+        axios.post(apiURL + 'company').then(c => {
+            setComp(c.data);
+            console.log(c.data)
+        })
+    }, [])
+
 
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={{
+            flex: 1,
+            backgroundColor: colors.myback3,
+            padding: 20,
+        }}>
+            <MyHeader menu='Hasil Pemeriksaan' />
+            <MyGap jarak={20} />
+            <ScrollView showsVerticalScrollIndicator={false}>
 
-            <View style={{
-                height: 80,
-                backgroundColor: colors.primary,
-                justifyContent: 'center',
-                paddingHorizontal: 10,
-            }}>
-                <View style={{
-                    flexDirection: 'row'
-                }}>
-                    <Text style={{
-                        fontFamily: fonts.secondary[600],
-                        color: colors.white,
-                        fontSize: 14,
-                        flex: 1,
-                    }}>Region</Text>
-                    <Text style={{
-                        flex: 1,
-                        fontFamily: fonts.secondary[400],
-                        color: colors.white,
-                        fontSize: 14
-                    }}>{item.region}</Text>
-                </View>
-                <View style={{
-                    flexDirection: 'row'
-                }}>
-                    <Text style={{
-                        fontFamily: fonts.secondary[600],
-                        color: colors.white,
-                        fontSize: 14,
-                        flex: 1,
-                    }}>PT</Text>
-                    <Text style={{
-                        flex: 1,
-                        fontFamily: fonts.secondary[400],
-                        color: colors.white,
-                        fontSize: 14
-                    }}>{item.pt}</Text>
-                </View>
-                <View style={{
-                    flexDirection: 'row'
-                }}>
-                    <Text style={{
-                        fontFamily: fonts.secondary[600],
-                        color: colors.white,
-                        fontSize: 14,
-                        flex: 1,
-                    }}>Tahun dan Bulan Pendataan</Text>
-                    <Text style={{
-                        flex: 1,
-                        fontFamily: fonts.secondary[400],
-                        color: colors.white,
-                        fontSize: 14
-                    }}>{item.bulan_tahun}</Text>
-                </View>
-
-            </View>
-
-            <View style={{
-                flex: 1,
-                padding: 10,
-            }}>
-
-                <MyListData label='No KK*' value={item.nomor_kk} />
-                <MyListData label='Type*' value={item.tipe_rumah} />
-                <MyListData label='Blok*' value={item.blok_rumah} />
-                <MyListData label='No. Rumah*' value={item.nomor_rumah} />
-                <MyListData label='NIK Karyawan' value={item.nik_karyawan} />
-                <MyListData label='No KTP*' value={item.nomor_ktp} />
-                <MyListData label='Nama Anggota Keluarga*' value={item.nama_anggota_keluarga} />
-                <MyListData label='L/P*' value={item.jenis_kelamin} />
-                <MyListData label='Status Hubungan dalam Keluarga*' value={item.status_hubungan_keluarga} />
-                <MyListData label='Status Perkawinan' value={item.status_perkawinan} />
-                <MyListData label='Akta Lahir' value={item.akta_lahir} />
-                <MyListData label='Alamat tinggal Sesuai KTP' value={item.alamat_ktp} />
-                <MyListData label='Alamat Sekatang' value={item.alamat_sekarang} />
-                <MyListData label='Tempat Lahir' value={item.tempat_lahir} />
-                <MyListData label='Tanggal lahir*' value={item.tanggal_lahir} />
-                <MyListData label='Usia' value={item.usia} />
-                <MyListData label='Agama' value={item.agama} />
-                <MyListData label='Suku' value={item.suku} />
-                <MyListData label='Pendidikan Terakhir yang ditamatkan*' value={item.pendidikan_terakhir} />
-                <MyListData label='Jenjang Pendidikan' value={item.jenjang_pendidikan} />
-                <MyListData label='Nama Sekolah' value={item.nama_sekolah} />
-                <MyListData label='Jenis Sekolah' value={item.jenis_sekolah} />
-                <MyListData label='Alasan Jika Anak Tidak Sekolah' value={item.alasan_anak_tidak_sekolah} />
-                <MyListData label='Status Pekerjaan*' value={item.status_pekerjaan} />
-                <MyListData label='Status Tinggal*' value={item.status_tinggal} />
-                <MyListData label='Alamat Asal Pengunjung' value={item.alamat_asal_pengunjung} />
-                <MyListData label='Ket' value={item.keterangan} />
-
-
-
-
-            </View>
-
-
-
-            <TouchableOpacity onPress={() => {
-                Alert.alert('Sensus Penduduk', 'Apakah kamu yakin akan hapus ini ?', [
-                    {
-                        style: 'cancel',
-                        text: 'Batal'
-                    },
-                    {
-                        style: 'default',
-                        text: 'Hapus',
-                        onPress: () => {
-
-                            console.log(item.id_penduduk);
-                            axios.post(apiURL + 'delete_penduduk', {
-                                id_penduduk: item.id_penduduk
-                            }).then(res => {
-                                console.log(res.data);
-                                navigation.goBack();
-                                showMessage({
-                                    type: 'success',
-                                    message: 'Data berhasil dihapus !'
-                                })
-                            })
-
-                        }
-                    }
-                ])
-            }} style={{
-                padding: 10,
-                backgroundColor: colors.danger
-            }}>
+                <MyDataList l="Kategori Index Massa Tubuh" v={item.hmasa} />
+                <MyDataList l="Lingkar Lengan (cm)" v={item.hlingkar_lengan} />
+                <MyDataList l="Lingkar Perut (cm)" v={item.hlingkar_perut} />
                 <Text style={{
                     fontFamily: fonts.secondary[600],
-                    fontSize: windowWidth / 30,
-                    color: colors.white,
-                    textAlign: 'center'
-                }}>Hapus</Text>
-            </TouchableOpacity>
-        </View>
-    )
+                    fontSize: windowWidth / 28
+                }}>Tekanan Darah (mmHg)</Text>
+                <View style={{
+                    flexDirection: 'row'
+                }}>
+                    <View style={{
+                        flex: 1,
+                    }}>
+                        <MyDataList l="Sistole" v={item.hsistole} />
+                    </View>
+                    <View style={{
+                        flex: 1,
+                    }}>
+                        <MyDataList l="Diastole" v={item.hdiastole} />
+                    </View>
+                </View>
+                <MyDataList l="Hemoglobin (gr/dl)" v={item.hhemoglobin} />
+                <MyDataList l="Gula Darah (mg/dl)" v={item.hgula_darah} />
 
+            </ScrollView>
+
+            <MyGap jarak={10} />
+            <Text style={{
+                fontFamily: fonts.secondary[600],
+                fontSize: windowWidth / 28,
+                marginBottom: 10,
+                textAlign: 'center'
+            }}>Yuk, konsultasikan hasil pemeriksaanmu dengan nakes</Text>
+            {!loading && <MyButton onPress={konsultasi} title="Konsultasi" warna={colors.foourty} Icons="logo-whatsapp" />}
+
+            {loading && <ActivityIndicator size="large" color={colors.primary} />
+            }
+        </SafeAreaView>
+    )
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
-
-});
+const styles = StyleSheet.create({})

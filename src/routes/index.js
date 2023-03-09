@@ -52,6 +52,7 @@ import {
   AAKategori,
   AAAtur,
   AAKategoriSeks,
+  STentangApp,
 } from '../pages';
 import { colors } from '../utils';
 import { Icon } from 'react-native-elements';
@@ -133,7 +134,7 @@ export default function Router() {
         name="SAdd"
         component={SAdd}
         options={{
-          headerShown: true,
+          headerShown: false,
           headerTitle: 'SCAN BARCODE',
           headerStyle: {
             backgroundColor: colors.primary,
@@ -158,6 +159,19 @@ export default function Router() {
       <Stack.Screen
         name="STentang"
         component={STentang}
+        options={{
+          headerShown: false,
+          headerTitle: 'Tentang',
+          headerStyle: {
+            backgroundColor: colors.primary,
+          },
+          headerTintColor: '#fff',
+        }}
+      />
+
+      <Stack.Screen
+        name="STentangApp"
+        component={STentangApp}
         options={{
           headerShown: false,
           headerTitle: 'Tentang',
@@ -494,7 +508,29 @@ export default function Router() {
           headerShown: false,
         }}
       />
-
+      <Stack.Screen
+        name="SDaftar"
+        component={SDaftar}
+        options={{
+          headerShown: false,
+          headerStyle: {
+            backgroundColor: colors.primary,
+          },
+          headerTintColor: '#fff',
+        }}
+      />
+      <Stack.Screen
+        name="SHasil"
+        component={SHasil}
+        options={{
+          headerShown: false,
+          headerTitle: 'Hasil Analisa',
+          headerStyle: {
+            backgroundColor: colors.primary,
+          },
+          headerTintColor: '#fff',
+        }}
+      />
       {/* <Stack.Screen
         name="SDaftar"
         component={SDaftar}

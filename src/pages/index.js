@@ -48,6 +48,7 @@ import AABidan from './AABidan';
 import AAKategori from './AAKategori';
 import AAAtur from './AAAtur';
 import AAKategoriSeks from './AAKategoriSeks';
+import STentangApp from './STentangApp';
 
 
 // NEW
@@ -121,6 +122,7 @@ export {
   AAInput,
   AAKategori,
   AAAtur,
-  AAKategoriSeks
+  AAKategoriSeks,
+  STentangApp
 
 };

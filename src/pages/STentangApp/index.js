@@ -14,7 +14,7 @@ import 'intl';
 import 'intl/locale-data/jsonp/en';
 import RenderHtml from 'react-native-render-html';
 
-export default function STentang({ navigation }) {
+export default function STentangApp({ navigation }) {
 
 
 
@@ -24,10 +24,10 @@ export default function STentang({ navigation }) {
             backgroundColor: colors.white,
             padding: 0,
         }}>
-            <Image source={require('../../assets/tentang.png')} style={{
+            <Image source={require('../../assets/tentang_app.png')} style={{
                 width: windowWidth,
                 height: windowHeight,
-                resizeMode: 'contain'
+
             }} />
 
         </SafeAreaView >

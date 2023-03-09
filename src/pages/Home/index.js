@@ -76,7 +76,7 @@ export default function Home({ navigation }) {
         marginTop: 5,
         flex: 1,
       }}>
-        <TouchableOpacity onPress={() => navigation.navigate('AAInput', user)} style={{
+        <TouchableOpacity onPress={() => navigation.navigate('SAdd', user)} style={{
           flexDirection: 'row',
           padding: 10,
           elevation: 1,

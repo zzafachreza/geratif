@@ -14,5 +14,6 @@ export const colors = {
   myicon: '#4090C9',
   mybutton: '#1466BF',
   myback: '#F5F5F5',
-  myback2: '#B1D4E0'
+  myback2: '#B1D4E0',
+  myback3: '#F4F6FF'
 };

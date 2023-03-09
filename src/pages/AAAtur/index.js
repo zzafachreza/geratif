@@ -118,7 +118,7 @@ export default function AAAtur({ navigation }) {
                     }}>Panduan Aplikasi</Text>
                     <Icon type='ionicon' name='chevron-forward' color={colors.black} />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => navigation.navigate('STentang')} style={{
+                <TouchableOpacity onPress={() => navigation.navigate('STentangApp')} style={{
                     flexDirection: 'row',
                     padding: 20,
                     marginVertical: 2

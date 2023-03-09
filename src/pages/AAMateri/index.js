@@ -39,9 +39,9 @@ export default function AAMAteri({ navigation, route }) {
                 }} style={{
                     flex: 1,
                     width: windowWidth / 1.2,
-                    height: 80,
                     backgroundColor: index % 2 !== 0 ? '#E6F0F3' : '#FFFFFF',
                     margin: 3,
+                    paddingVertical: 5,
                     borderRadius: 10,
                     paddingHorizontal: 5,
                     flexDirection: 'row',
@@ -63,11 +63,11 @@ export default function AAMAteri({ navigation, route }) {
                     }}>
                         <Text style={{
                             fontFamily: fonts.primary[600],
-                            fontSize: windowWidth / 26,
+                            fontSize: 12,
                         }}>{item.judul} </Text>
                         <Text style={{
                             fontFamily: fonts.primary[300],
-                            fontSize: windowWidth / 37,
+                            fontSize: 11,
                             color: colors.border
                         }}>{item.keterangan}</Text>
                         <View style={{
