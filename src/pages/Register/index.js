@@ -160,20 +160,20 @@ export default function Register({ navigation }) {
                         color: colors.black,
                         marginBottom: 10,
 
-                    }}>Sign Up</Text>
+                    }}>Daftar</Text>
                     <Text style={{
                         fontSize: windowWidth / 18,
                         fontFamily: fonts.primary[400],
                         color: colors.black,
                         textAlign: 'center',
                         marginBottom: 10,
-                    }}>Please complete your{'\n'}biodata correctly</Text>
+                    }}>Tolong lengkapi biodata kamu {'\n'}dengan bernar</Text>
                 </View>
 
 
                 <MyInput
-                    placeholder="Enter your name"
-                    label="Your Name"
+                    placeholder="Masukan nama kamu"
+                    label="Nama Kamu"
                     iconname="person"
                     value={data.nama_lengkap}
                     onChangeText={value =>
@@ -188,8 +188,8 @@ export default function Register({ navigation }) {
 
                 <MyGap jarak={10} />
                 <MyInput
-                    placeholder="Enter your email"
-                    label="Your E-mail"
+                    placeholder="Masukan email kamu"
+                    label="Email Kamu"
                     iconname="mail"
                     value={data.email}
                     onChangeText={value =>
@@ -207,8 +207,8 @@ export default function Register({ navigation }) {
 
                 <MyGap jarak={10} />
                 <MyInput
-                    placeholder="Enter your password"
-                    label="Create your Password"
+                    placeholder="Masukan buat sandi kamu"
+                    label="Buat Sandi Kamu"
                     iconname="lock-closed"
                     secureTextEntry
                     value={data.password}
@@ -223,8 +223,8 @@ export default function Register({ navigation }) {
                 <MyInput
                     borderColor={sama ? colors.border : colors.danger}
                     borderWidth={sama ? 0 : 1}
-                    placeholder="Enter re-type your password"
-                    label="Re-type your Password"
+                    placeholder="Masukan ulang kata sandi kamu"
+                    label="Tulis Ulang Kata Sandi Kamu"
                     iconname="lock-closed"
                     secureTextEntry
                     value={data.repassword}
@@ -255,9 +255,9 @@ export default function Register({ navigation }) {
                         <MyPicker onValueChange={x => setData({
                             ...data,
                             gender: x
-                        })} label="Gender" iconname="male-female" data={[
-                            { label: 'Male', value: 'Male' },
-                            { label: 'Female', value: 'Female' },
+                        })} label="Jenis Kelamin" iconname="male-female" data={[
+                            { label: 'Laki-laki', value: 'Laki-laki' },
+                            { label: 'Perempuan', value: 'Perempuan' },
                         ]} />
                     </View>
                     <View style={{
@@ -279,14 +279,14 @@ export default function Register({ navigation }) {
                                     left: 10,
                                     fontSize: 12,
                                 }}>
-                                Birthday
+                                Tanggal Lahir
                             </Text>
                         </View>
                         <DatePicker
                             style={{ width: '100%' }}
                             date={data.tanggal_lahir}
                             mode="date"
-                            placeholder="select birth day"
+                            placeholder="Pilih tanggal lahir"
                             format="YYYY-MM-DD"
                             confirmBtnText="Confirm"
                             cancelBtnText="Cancel"
@@ -339,14 +339,14 @@ export default function Register({ navigation }) {
                         marginTop: 5,
                         fontFamily: fonts.primary[400],
                         fontSize: windowWidth / 30
-                    }}>I agree to the Terms and Conditions</Text>
+                    }}>Saya setuju dengan syarat dan ketentuan yang berlaku</Text>
                 </TouchableOpacity>
 
                 {!loading &&
                     <MyButton
 
                         warna={colors.foourty}
-                        title="Create your Account"
+                        title="Buat Akun"
                         Icons="log-in"
                         onPress={simpan}
                     />
@@ -360,12 +360,12 @@ export default function Register({ navigation }) {
                     fontFamily: fonts.primary[400],
                     textAlign: 'center',
                     color: colors.tertiary
-                }}>Already have an account ? <Text style={{
+                }}>Sudah punya akun ? <Text style={{
                     fontSize: windowWidth / 28,
                     fontFamily: fonts.primary[600],
                     textAlign: 'center',
                     color: colors.tertiary
-                }}>Sign In now</Text></Text></TouchableOpacity>
+                }}>Masuk sekarang</Text></Text></TouchableOpacity>
                 <MyGap jarak={10} />
                 {loading && <View style={{
                     flex: 1,

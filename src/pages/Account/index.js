@@ -164,7 +164,7 @@ export default function ({ navigation, route }) {
                                     fontFamily: fonts.primary[600],
                                     fontSize: windowWidth / 22,
                                     color: colors.black
-                                }}>Hallo,</Text>
+                                }}>Halo,</Text>
                                 <Text style={{
                                     fontFamily: fonts.primary[400],
                                     fontSize: windowWidth / 22,

@@ -1,4 +1,4 @@
-import { Alert, StyleSheet, Text, View, Image, FlatList, ActivityIndicator } from 'react-native'
+import { Alert, StyleSheet, Text, View, Image, FlatList, ActivityIndicator, ImageBackground } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { apiURL, getData, storeData } from '../../utils/localStorage';
@@ -16,49 +16,17 @@ import RenderHtml from 'react-native-render-html';
 
 export default function STentang({ navigation }) {
 
-    const [user, setUser] = useState({});
-    const [data, setData] = useState({});
-    const [loading, setLoading] = useState(false);
-    const [open, setOpen] = useState(false);
-    const isFocused = useIsFocused();
-    useEffect(() => {
-
-        __getTransaction();
-
-    }, []);
-
-    const __getTransaction = () => {
-        axios(apiURL + 'company').then(res => {
-            console.log(res.data.data.panduan)
-            setData(res.data.data);
-        })
-    }
 
 
     return (
-        <SafeAreaView style={{
+        <ImageBackground source={require('../../assets/tentang.png')} style={{
             flex: 1,
             backgroundColor: colors.white,
-            padding: 10,
+            padding: 0,
         }}>
-            <RenderHtml
-                contentWidth={windowWidth}
-                source={{
-                    html: data.tentang
-                }}
-            />
 
-        </SafeAreaView >
+
+        </ImageBackground >
     )
 }
 
-const styles = StyleSheet.create({
-    judul: {
-        fontFamily: fonts.secondary[600],
-        fontSize: windowWidth / 35
-    },
-    item: {
-        fontFamily: fonts.secondary[400],
-        fontSize: windowWidth / 35
-    }
-})

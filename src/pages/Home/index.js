@@ -64,16 +64,16 @@ export default function Home({ navigation }) {
       }}>
         <Text style={{
           fontFamily: fonts.primary[600],
-          fontSize: windowWidth / 17
-        }}>Hello, {user.nama_lengkap} !</Text>
+          fontSize: windowWidth / 19
+        }}>Halo, {user.nama_lengkap} !</Text>
         <Text style={{
-          fontFamily: fonts.primary[300],
-          fontSize: windowWidth / 22
-        }}>We glad to see you back.</Text>
+          fontFamily: fonts.secondary[200],
+          fontSize: windowWidth / 25
+        }}>Senang bertemu dengan kamu</Text>
       </View>
       {/* menu utama */}
       <View style={{
-        marginTop: 10,
+        marginTop: 5,
         flex: 1,
       }}>
         <TouchableOpacity onPress={() => navigation.navigate('AAInput', user)} style={{
@@ -89,7 +89,7 @@ export default function Home({ navigation }) {
           }}>
             <Text style={{
               fontFamily: fonts.primary[600],
-              fontSize: windowWidth / 22,
+              fontSize: windowWidth / 24,
               color: colors.white
             }}>Input Kesehatanmu</Text>
             <Text style={{
@@ -103,13 +103,13 @@ export default function Home({ navigation }) {
             }}>
               <Text style={{
                 fontFamily: fonts.primary[300],
-                fontSize: windowWidth / 22,
+                fontSize: windowWidth / 24,
                 color: colors.white
               }}>See More</Text>
             </View>
           </View>
           <Image source={require('../../assets/A1.png')} style={{
-            height: 100,
+            height: 90,
             width: 80,
             resizeMode: 'contain'
           }} />
@@ -134,7 +134,7 @@ export default function Home({ navigation }) {
           }}>
             <Text style={{
               fontFamily: fonts.primary[600],
-              fontSize: windowWidth / 22,
+              fontSize: windowWidth / 24,
               color: colors.black
             }}>Seputar Remaja</Text>
             <View style={{
@@ -146,7 +146,7 @@ export default function Home({ navigation }) {
             }} />
             <Text style={{
               fontFamily: fonts.primary[300],
-              fontSize: windowWidth / 28,
+              fontSize: windowWidth / 30,
               color: colors.border
             }}>cari tahu seputar permasalahan remaja disini</Text>
 
@@ -157,11 +157,11 @@ export default function Home({ navigation }) {
               <Text style={{
                 flex: 1,
                 fontFamily: fonts.primary[300],
-                fontSize: windowWidth / 22,
+                fontSize: windowWidth / 24,
                 color: colors.foourty
               }}>See Details  </Text>
 
-              <Icon type='ionicon' name='arrow-forward-outline' color={colors.foourty} size={windowWidth / 22} />
+              <Icon type='ionicon' name='arrow-forward-outline' color={colors.foourty} size={windowWidth / 24} />
             </View>
           </View>
 
@@ -176,7 +176,7 @@ export default function Home({ navigation }) {
           backgroundColor: '#E6F0F3'
         }}>
           <Image source={require('../../assets/A3.png')} style={{
-            height: 120,
+            height: 100,
             flex: 1,
             width: 80,
             resizeMode: 'contain'
@@ -186,9 +186,9 @@ export default function Home({ navigation }) {
           }}>
             <Text style={{
               fontFamily: fonts.primary[600],
-              fontSize: windowWidth / 22,
+              fontSize: windowWidth / 24,
               color: colors.black
-            }}>Tanya Bidan</Text>
+            }}>Tanya Nakes</Text>
             <View style={{
               borderBottomWidth: 2,
               borderColor: colors.foourty,
@@ -198,7 +198,7 @@ export default function Home({ navigation }) {
             }} />
             <Text style={{
               fontFamily: fonts.primary[300],
-              fontSize: windowWidth / 28,
+              fontSize: windowWidth / 30,
               color: colors.border
             }}>tenang, bu bidan akan membantu menyelesaikan permasalahan remaja mu</Text>
 
@@ -209,11 +209,11 @@ export default function Home({ navigation }) {
               <Text style={{
                 flex: 1,
                 fontFamily: fonts.primary[300],
-                fontSize: windowWidth / 22,
+                fontSize: windowWidth / 24,
                 color: colors.foourty
               }}>See Details  </Text>
 
-              <Icon type='ionicon' name='arrow-forward-outline' color={colors.foourty} size={windowWidth / 22} />
+              <Icon type='ionicon' name='arrow-forward-outline' color={colors.foourty} size={windowWidth / 24} />
             </View>
           </View>
 
@@ -231,7 +231,7 @@ export default function Home({ navigation }) {
           }}>
             <Text style={{
               fontFamily: fonts.primary[600],
-              fontSize: windowWidth / 22,
+              fontSize: windowWidth / 24,
               color: colors.black
             }}>Tentang Kami</Text>
             <Text style={{
@@ -245,13 +245,13 @@ export default function Home({ navigation }) {
             }}>
               <Text style={{
                 fontFamily: fonts.primary[300],
-                fontSize: windowWidth / 22,
+                fontSize: windowWidth / 24,
                 color: colors.foourty
               }}>See More</Text>
             </View>
           </View>
           <Image source={require('../../assets/A4.png')} style={{
-            height: 100,
+            height: 90,
             width: 80,
             resizeMode: 'contain'
           }} />

@@ -155,7 +155,7 @@ export default function ({ navigation }) {
             ...kirim,
             email: val
           })}
-            iconname="mail" placeholder="Enter your email" />
+            iconname="mail" placeholder="Masukan alamat email" />
           <MyGap jarak={20} />
           <MyInput
             onChangeText={val => setKirim({
@@ -163,9 +163,9 @@ export default function ({ navigation }) {
               password: val
             })}
             secureTextEntry={true}
-            label="Password"
+            label="Kata Sandi"
             iconname="lock-closed"
-            placeholder="Enter your password"
+            placeholder="Masukan kata sandi"
           />
           <MyGap jarak={40} />
           {!loading &&
@@ -200,13 +200,13 @@ export default function ({ navigation }) {
         fontFamily: fonts.primary[400],
         textAlign: 'center',
         color: colors.tertiary
-      }}>Don't have an account ? <Text style={{
+      }}>Tidak punya akun ? <Text style={{
         fontSize: windowWidth / 28,
         marginTop: 10,
         fontFamily: fonts.primary[600],
         textAlign: 'center',
         color: colors.tertiary
-      }}>Register</Text></Text></TouchableOpacity>
+      }}>Daftar sekarang</Text></Text></TouchableOpacity>
     </>
   );
 }

@@ -26,16 +26,16 @@ export default function AABidan({ navigation, route }) {
 
             <TouchableOpacity onPress={() => Linking.openURL('https://wa.me/' + item.telepon + '?text=Hallo%20Bu%20' + item.nama_bidan)} style={{
                 flex: 1,
-                width: windowWidth / 3.7,
-                height: windowHeight / 4.5,
+                width: windowWidth / 3.2,
+                height: windowHeight / 4.1,
                 backgroundColor: colors.white,
-                margin: 5,
+                margin: 2,
                 padding: 10,
                 borderRadius: 10,
                 elevation: 1,
             }}>
                 <Image style={{
-                    width: windowWidth / 4.5,
+                    width: '100%',
                     borderTopRightRadius: 20,
                     height: 100,
                 }} source={{
@@ -46,7 +46,7 @@ export default function AABidan({ navigation, route }) {
                 }}>
                     <Text style={{
                         fontFamily: fonts.primary[600],
-                        fontSize: windowWidth / 30,
+                        fontSize: windowWidth / 35,
                     }}>{item.nama_bidan}</Text>
                     <Text style={{
                         top: -5,
@@ -90,33 +90,40 @@ export default function AABidan({ navigation, route }) {
 
         <SafeAreaView style={{
             flex: 1,
-            padding: 20,
-            backgroundColor: colors.myback2
+            padding: 0,
+            backgroundColor: colors.myback2,
         }}>
-            <MyHeader />
             <View style={{
-                borderTopWidth: 1,
-                marginBottom: 20,
-                borderTopColor: colors.white,
-                width: 100,
-            }} />
-            <Text style={{
-                fontFamily: fonts.primary[400],
-                color: colors.foourty,
-                fontSize: windowWidth / 28
-            }}>tanyakan seputar keluhanmu, yuk!</Text>
-            <Text style={{
-                fontFamily: fonts.primary[800],
-                color: colors.foourty,
-                fontSize: windowWidth / 9
-            }}>TANYA BIDAN</Text>
+                padding: 20,
+            }}>
+                <MyHeader />
+                <View style={{
+                    borderTopWidth: 1,
+                    marginBottom: 20,
+                    borderTopColor: colors.white,
+                    width: 100,
+                }} />
+                <Text style={{
+                    fontFamily: fonts.primary[400],
+                    color: colors.foourty,
+                    fontSize: windowWidth / 28
+                }}>tanyakan seputar keluhanmu, yuk!</Text>
+                <Text style={{
+                    fontFamily: fonts.primary[800],
+                    color: colors.foourty,
+                    fontSize: windowWidth / 9
+                }}>TANYA NAKES</Text>
+            </View>
+
             <View style={{
-                marginTop: 20,
-                justifyContent: 'space-around',
+                flex: 1,
                 alignItems: 'center'
             }}>
-                <FlatList numColumns={3} data={data} renderItem={__renderItem} />
+                <FlatList style={{
+                    flex: 1,
+                }} numColumns={3} data={data} renderItem={__renderItem} />
             </View>
+
         </SafeAreaView>
 
 

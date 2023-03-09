@@ -48,8 +48,8 @@ export default function AAMAteri({ navigation, route }) {
                     alignItems: 'center',
                 }}>
                     <Image style={{
-                        width: windowWidth / 5,
-                        height: 60,
+                        width: windowWidth / 6,
+                        height: 50,
                         resizeMode: 'contain',
                     }} source={{
                         uri: item.foto_materi
@@ -63,7 +63,7 @@ export default function AAMAteri({ navigation, route }) {
                     }}>
                         <Text style={{
                             fontFamily: fonts.primary[600],
-                            fontSize: windowWidth / 23,
+                            fontSize: windowWidth / 26,
                         }}>{item.judul} </Text>
                         <Text style={{
                             fontFamily: fonts.primary[300],

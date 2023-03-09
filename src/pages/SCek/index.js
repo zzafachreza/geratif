@@ -13,7 +13,7 @@ import axios from 'axios';
 import 'intl';
 import 'intl/locale-data/jsonp/en';
 import RenderHtml from 'react-native-render-html';
-
+import YoutubePlayer from "react-native-youtube-iframe";
 export default function SCek({ navigation }) {
 
     const [user, setUser] = useState({});
@@ -29,7 +29,7 @@ export default function SCek({ navigation }) {
 
     const __getTransaction = () => {
         axios(apiURL + 'company').then(res => {
-            console.log(res.data.data.panduan)
+            console.log(res.data.data.website)
             setData(res.data.data);
         })
     }
@@ -39,15 +39,15 @@ export default function SCek({ navigation }) {
         <SafeAreaView style={{
             flex: 1,
             backgroundColor: colors.white,
-            padding: 10,
+            // padding: 10,
         }}>
-            <RenderHtml
-                contentWidth={windowWidth}
-                source={{
-                    html: data.panduan
-                }}
-            />
 
+            <YoutubePlayer
+                height={300}
+                play={false}
+                videoId={data.panduan}
+
+            />
         </SafeAreaView >
     )
 }
