@@ -123,12 +123,7 @@ export default function Home({ navigation }) {
           marginVertical: 5,
           backgroundColor: '#FFF'
         }}>
-          <Image source={require('../../assets/A2.png')} style={{
-            height: 90,
-            flex: 1,
-            width: 80,
-            resizeMode: 'contain'
-          }} />
+
           <View style={{
             flex: 1,
           }}>
@@ -164,7 +159,12 @@ export default function Home({ navigation }) {
               <Icon type='ionicon' name='arrow-forward-outline' color={colors.foourty} size={windowWidth / 24} />
             </View>
           </View>
-
+          <Image source={require('../../assets/A2.png')} style={{
+            height: 90,
+            flex: 1,
+            width: 80,
+            resizeMode: 'contain'
+          }} />
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => navigation.navigate('AABidan', user)} style={{
@@ -175,12 +175,7 @@ export default function Home({ navigation }) {
           marginVertical: 5,
           backgroundColor: '#E6F0F3'
         }}>
-          <Image source={require('../../assets/A3.png')} style={{
-            height: 100,
-            flex: 1,
-            width: 80,
-            resizeMode: 'contain'
-          }} />
+
           <View style={{
             flex: 1,
           }}>
@@ -200,7 +195,7 @@ export default function Home({ navigation }) {
               fontFamily: fonts.primary[300],
               fontSize: windowWidth / 30,
               color: colors.border
-            }}>tenang, bu bidan akan membantu menyelesaikan permasalahan remaja mu</Text>
+            }}>tenang, tenaga kesehatan akan membantu menyelesaikan permasalahan remaja mu</Text>
 
             <View style={{
               marginTop: 10,
@@ -216,7 +211,12 @@ export default function Home({ navigation }) {
               <Icon type='ionicon' name='arrow-forward-outline' color={colors.foourty} size={windowWidth / 24} />
             </View>
           </View>
-
+          <Image source={require('../../assets/A3.png')} style={{
+            height: 100,
+            flex: 1,
+            width: 80,
+            resizeMode: 'contain'
+          }} />
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate('STentang', user)} style={{
           flexDirection: 'row',

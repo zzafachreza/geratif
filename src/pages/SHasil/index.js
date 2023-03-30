@@ -28,7 +28,7 @@ export default function AAInput({ navigation, route }) {
     // setLoading(false);
 
     const konsultasi = () => {
-        Linking.openURL('https://wa.me/' + comp.tlp);
+        navigation.navigate('AABidan')
     }
 
     const MyDataList = ({ l, v }) => {

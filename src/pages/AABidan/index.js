@@ -24,7 +24,7 @@ export default function AABidan({ navigation, route }) {
     const __renderItem = ({ item, index }) => {
         return (
 
-            <TouchableOpacity onPress={() => Linking.openURL('https://wa.me/' + item.telepon + '?text=Hallo%20Bu%20' + item.nama_bidan)} style={{
+            <TouchableOpacity onPress={() => Linking.openURL('https://wa.me/' + item.telepon)} style={{
                 flex: 1,
                 width: windowWidth / 3.2,
                 height: windowHeight / 4.1,
