@@ -54,9 +54,10 @@ export default function Register({ navigation }) {
         api_token: api_token,
         password: '',
         repassword: '',
-        email: '',
+        telepon: '',
         nama_lengkap: '',
         tanggal_lahir: '',
+        alamat: '',
         gender: 'Male',
     });
 
@@ -65,36 +66,36 @@ export default function Register({ navigation }) {
             data.nama_lengkap.length === 0 &&
             data.tanggal_lahir.length === 0 &&
             data.nik.length === 0 &&
-            data.email.length === 0 &&
+            data.telepon.length === 0 &&
             data.password.length === 0
 
         ) {
             showMessage({
-                message: 'The Register form could not empty !',
+                message: 'Formulir pendaftaran tidak boleh kosong !',
             });
         } else if (data.nama_lengkap.length === 0) {
             showMessage({
-                message: 'Please enter your name',
+                message: 'Masukan nama kamu',
             });
         }
         else if (!cek) {
             showMessage({
-                message: 'Please agree the Terms and Conditions',
+                message: 'Silahkan centang syarat dan ketentuan',
             });
         }
-        else if (data.email.length === 0) {
+        else if (data.telepon.length === 0) {
             showMessage({
-                message: 'Please enter your email',
+                message: 'Masukan nomor telepon',
             });
         } else if (data.password.length === 0) {
             showMessage({
-                message: 'Please enter your password',
+                message: 'Masukan kata sandi kamu',
             });
         } else {
 
             console.log(data);
 
-            //     setLoading(true);
+            setLoading(true);
             axios
                 .post(apiURL + 'register', data)
                 .then(res => {
@@ -167,7 +168,7 @@ export default function Register({ navigation }) {
                         color: colors.black,
                         textAlign: 'center',
                         marginBottom: 10,
-                    }}>Tolong lengkapi biodata kamu {'\n'}dengan bernar</Text>
+                    }}>Tolong lengkapi biodata kamu {'\n'}dengan benar</Text>
                 </View>
 
 
@@ -188,14 +189,29 @@ export default function Register({ navigation }) {
 
                 <MyGap jarak={10} />
                 <MyInput
-                    placeholder="Masukan email kamu"
-                    label="Email Kamu"
-                    iconname="mail"
-                    value={data.email}
+                    placeholder="Masukan telepon kamu"
+                    label="Telepon Kamu"
+                    iconname="call"
+                    keyboardType="phone-pad"
+                    value={data.telepon}
                     onChangeText={value =>
                         setData({
                             ...data,
-                            email: value,
+                            telepon: value,
+                        })
+                    }
+                />
+
+                <MyGap jarak={10} />
+                <MyInput
+                    placeholder="Masukan alamat kamu"
+                    label="Alamat Kamu"
+                    iconname="location"
+                    value={data.alamat}
+                    onChangeText={value =>
+                        setData({
+                            ...data,
+                            alamat: value,
                         })
                     }
                 />
@@ -351,7 +367,7 @@ export default function Register({ navigation }) {
                         onPress={simpan}
                     />
                 }
-                <TouchableOpacity onPress={() => navigation.navigate('Register')} style={{
+                <TouchableOpacity onPress={() => navigation.navigate('Login')} style={{
                     padding: 10,
                     justifyContent: 'center',
                     alignItems: 'center'

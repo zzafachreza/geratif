@@ -173,11 +173,11 @@ export default function ({ navigation, route }) {
                             </View>
                         </View>
                         <View style={{ padding: 10, }}>
-                            <MyList label="Email" value={user.email} />
+                            <MyList label="Nomor Ponsel" value={user.telepon} />
                             <MyList label="Tanggal Lahir" value={moment(user.tanggal_lahir).format('LL')} />
                             <MyList label="Jenis Kelamin" value={user.gender} />
                             <MyList label="Alamat" value={user.alamat} />
-                            <MyList label="Nomor Ponsel" value={user.telepon} />
+
 
                         </View>
                         {/* data detail */}

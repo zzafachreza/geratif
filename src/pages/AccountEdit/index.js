@@ -104,10 +104,6 @@ export default function AccountEdit({ navigation, route }) {
                 <MyGap jarak={10} />
 
 
-
-                <MyInput label="Email" iconname="mail" value={kirim.email} onChangeText={x => setKirim({ ...kirim, email: x })} />
-                <MyGap jarak={10} />
-
                 <MyInput label="Telepon" iconname="call" keyboardType="phone-pad" value={kirim.telepon} onChangeText={x => setKirim({ ...kirim, telepon: x })} />
                 <MyGap jarak={10} />
 

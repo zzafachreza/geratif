@@ -11,7 +11,7 @@ export default function ({ navigation }) {
 
   const [kirim, setKirim] = useState({
     api_token: api_token,
-    email: null,
+    telepon: null,
     password: null
   });
   const [loading, setLoading] = useState(false);
@@ -21,10 +21,10 @@ export default function ({ navigation }) {
   const masuk = () => {
 
 
-    if (kirim.email == null && kirim.password == null) {
-      Alert.alert(MYAPP, 'email or Passwoord could not empty !');
-    } else if (kirim.email == null) {
-      Alert.alert(MYAPP, 'email  could not empty');
+    if (kirim.telepon == null && kirim.password == null) {
+      Alert.alert(MYAPP, 'telepon or Passwoord could not empty !');
+    } else if (kirim.telepon == null) {
+      Alert.alert(MYAPP, 'telepon  could not empty');
     } else if (kirim.password == null) {
       Alert.alert(MYAPP, 'Password  could not empty');
     } else {
@@ -151,11 +151,11 @@ export default function ({ navigation }) {
         </View>
         <MyGap jarak={10} />
         <View style={{ padding: 10, marginVertical: 10, flex: 1 }}>
-          <MyInput label="Email" onChangeText={val => setKirim({
+          <MyInput label="Telepon" onChangeText={val => setKirim({
             ...kirim,
-            email: val
+            telepon: val
           })}
-            iconname="mail" placeholder="Masukan alamat email" />
+            iconname="call" keyboardType='phone-pad' placeholder="Masukan nomor telepon" />
           <MyGap jarak={20} />
           <MyInput
             onChangeText={val => setKirim({
